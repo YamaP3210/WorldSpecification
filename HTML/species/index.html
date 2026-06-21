@@ -1,0 +1,428 @@
+﻿<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>人類・人種 - ＜創作世界＞設定仕様書</title>
+  <style>
+    :root {
+      --page-bg: #f8f9fa;
+      --content-bg: #ffffff;
+      --border: #a2a9b1;
+      --border-light: #c8ccd1;
+      --text: #202122;
+      --muted: #54595d;
+      --link: #0645ad;
+      --heading: #000000;
+      --meta-bg: #f5f7fa;
+      --meta-border: #8a98a8;
+      --table-head: #eaecf0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--page-bg);
+      color: var(--text);
+      font-family: "Yu Gothic", "Meiryo", system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      background: var(--content-bg);
+      padding: 10px 24px;
+    }
+
+    .site-title {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 20px 24px 48px;
+    }
+
+    .sidebar {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .sidebar h2 {
+      margin: 0 0 8px;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--heading);
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .sidebar ol {
+      margin: 0 0 18px;
+      padding-left: 22px;
+    }
+
+    .article {
+      min-width: 0;
+      border: 1px solid var(--border);
+      background: var(--content-bg);
+      padding: 24px 32px 40px;
+    }
+
+    .article-header {
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      color: var(--heading);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      font-weight: 400;
+      line-height: 1.25;
+    }
+
+    .article-note {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    h2 {
+      clear: both;
+      margin: 28px 0 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--heading);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    table {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-collapse: collapse;
+      margin: 14px 0 20px;
+      background: #ffffff;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--border-light);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--table-head);
+      font-weight: 600;
+    }
+
+    .meta-note {
+      clear: both;
+      margin: 16px 0 22px;
+      border: 1px solid var(--meta-border);
+      background: var(--meta-bg);
+      color: var(--text);
+    }
+
+    .meta-note summary {
+      cursor: pointer;
+      padding: 8px 10px;
+      color: var(--heading);
+      font-weight: 600;
+    }
+
+    .meta-note-body {
+      border-top: 1px solid var(--border-light);
+      padding: 10px 12px 12px;
+    }
+
+    .stub {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: flex-start;
+      margin: 14px 0 20px;
+    }
+
+    .image-gallery figure {
+      width: 150px;
+      margin: 0;
+      border: 1px solid var(--border-light);
+      background: #ffffff;
+      padding: 8px;
+    }
+
+    .image-gallery img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--border-light);
+      background: #f8f9fa;
+    }
+
+    .image-gallery figcaption {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 760px) {
+      .layout {
+        display: block;
+        padding: 12px;
+      }
+
+      .sidebar {
+        margin-bottom: 16px;
+      }
+
+      .article {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <p class="site-title">＜創作世界＞設定仕様書</p>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" aria-label="目次">
+      <h2>目次</h2>
+      <ol>
+        <li><a href="#overview">概要</a></li>
+        <li><a href="#humanity">人類</a></li>
+        <li><a href="#human-species">人類種</a></li>
+        <li><a href="#main-races">主要人種</a></li>
+        <li><a href="#elf-species">エルフ種</a></li>
+        <li><a href="#lifespan-growth">寿命と成長</a></li>
+        <li><a href="#modern-elf-society">現代エルフ社会の変化</a></li>
+        <li><a href="#terminology">用語上の注意</a></li>
+      </ol>
+      <p><a href="../index.html">全体インデックスへ戻る</a></p>
+    </nav>
+
+    <main class="article">
+      <header class="article-header">
+        <h1>人類・人種</h1>
+        <p class="article-note">このページは、＜創作世界＞に存在する人類と人種分類に関する設定情報と制作上のメタ情報を記録する。</p>
+      </header>
+
+      <section id="overview">
+        <h2>概要</h2>
+        <p>＜創作世界＞には、複数の人種が存在する。</p>
+        <p>主要な人種は、＜平人＞、＜エルフ＞、＜ドワーフ＞、＜魔族＞の四種である。</p>
+        <p>この四種以外の人種も存在するが、世界設定上の主要分類はこの四種を中心として扱う。</p>
+
+        <details class="meta-note" open>
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>ここで用いる＜平人＞、＜エルフ＞、＜ドワーフ＞、＜魔族＞は、現時点では正式名称ではなく仮称である。言語設定と命名体系が確定するまでは、便宜上の一般的な語句として扱う。</p>
+            <p>＜平人＞は、従来の説明上の「人間」に相当する人類分類の制作上の仮称である。将来的に、現地視点での独自呼称へ変更する可能性がある。</p>
+            <p>将来的に、世界内言語での呼称、日本語表現としての訳語、制作上の仮称を分けて整理する可能性がある。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="humanity">
+        <h2>人類</h2>
+        <p>本設定における人類とは、＜平人＞、＜エルフ＞、＜ドワーフ＞、＜魔族＞を含む上位分類である。</p>
+        <p>厳密な系統上、人類種は平人種とエルフ種から構成される。</p>
+        <p>＜エルフ＞、＜ドワーフ＞、＜魔族＞は、エルフ種から分化した人種である。</p>
+        <p>この世界において、人型の知的生物はおおよそ人類に含まれる。例外は存在するが、一般的に意思疎通が可能で、交流や社会的関係を結べる相手は人類として扱う。</p>
+        <p>＜平人＞は人類に含まれる一分類であり、人類全体を指す語ではない。＜エルフ＞、＜ドワーフ＞、＜魔族＞は人類に含まれるが、＜平人＞ではない。</p>
+
+        <details class="meta-note">
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>主要四分類のうち、＜平人＞は平人種に属し、＜エルフ＞、＜ドワーフ＞、＜魔族＞はエルフ種に属する。人種、亜種、亜種未満といった細かな分類階級は、後の生物学的設定、人類史、交雑可能性、魔法的変異、進化史の検討に応じて整理する。</p>
+            <p>イメージとしては、＜平人＞をホモ・サピエンス、＜エルフ＞をネアンデルタール人、＜ドワーフ＞をデニソワ人のような近縁人類として捉える。ただし、これは現実の分類をそのまま対応させるものではなく、距離感を説明するための制作上の比喩である。</p>
+            <p>＜魔族＞も人類に含まれる。魔族を人類外の完全な異種存在として扱わない点は、今後の歴史・社会・交流・対立を考えるうえで重要な前提である。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="human-species">
+        <h2>人類種</h2>
+        <p>人類種とは、人類を種的まとまりとして捉える場合の表現である。</p>
+        <p>厳密には、人類種は平人種とエルフ種を指す。</p>
+        <p>＜平人＞は平人種に属し、＜エルフ＞、＜ドワーフ＞、＜魔族＞はエルフ種から分化した人種である。</p>
+        <p>平人種とエルフ種の分化は、思想的な選択ではなく、異なる環境条件と選択圧によって形成された適応様式の差として扱う。</p>
+
+        <details class="meta-note">
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>人類と人類種は別概念ではない。ただし、種の話題では、人類種の内部に平人種とエルフ種があるものとして整理する。</p>
+            <p>エルフ種は自然環境および精霊との関係性に深く適応する方向へ、平人種は道具、技術、火、集団行動、環境改変によって自然環境に対処する方向へ分化した。この差は、当時の人類種が思想的に選択したものではなく、そうした適応様式を持つ集団が生き残りやすかった結果である。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="main-races">
+        <h2>主要人種</h2>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">仮称</th>
+              <th scope="col">分類上の位置づけ</th>
+              <th scope="col">備考</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>＜平人＞</td>
+              <td>人類に含まれる主要人種</td>
+              <td>私たちのような一般的な人間種に相当する人類分類を指す。</td>
+            </tr>
+            <tr>
+              <td>＜エルフ＞</td>
+              <td>人類に含まれる主要人種</td>
+              <td>人類に含まれるが、＜平人＞ではない。</td>
+            </tr>
+            <tr>
+              <td>＜ドワーフ＞</td>
+              <td>人類に含まれる主要人種</td>
+              <td>人類に含まれるが、＜平人＞ではない。</td>
+            </tr>
+            <tr>
+              <td>＜魔族＞</td>
+              <td>人類に含まれる主要人種</td>
+              <td>人類に含まれるが、＜平人＞ではない。</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <details class="meta-note">
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>主要人種は四種を中心とするが、他の人種の存在は否定しない。人類史の説明では、まずこの四種を主軸に移動、分化、分布、文明形成を検討する。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="elf-species">
+        <h2>エルフ種</h2>
+        <p>エルフ種は、＜エルフ＞のみを指す分類ではない。</p>
+        <p>厳密には、＜ドワーフ＞と＜魔族＞もエルフ種に含まれる。</p>
+        <p>＜ドワーフ＞と＜魔族＞は、エルフ種から分化した人種である。</p>
+        <p>したがって、＜エルフ＞という主要人種と、系統分類としてのエルフ種は同一ではない。</p>
+        <p>一般的な＜エルフ＞は、平人ほど白兵戦特化の体躯や文化を持たず、魔法と自然との関係を重視する社会傾向を持つ。このため、武具や都市文化にも、重装武人国家とは異なる洗練と抑制が現れやすい。</p>
+
+        <details class="meta-note">
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>ここでは、一般的なファンタジー語としての＜エルフ＞と、分類上のエルフ種を区別する。＜エルフ＞は主要人種の一つを指す仮称であり、エルフ種はより広い系統分類として扱う。</p>
+            <p>この定義により、＜ドワーフ＞や＜魔族＞は人類であると同時に、厳密にはエルフ種にも属することになる。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="lifespan-growth">
+        <h2>寿命と成長</h2>
+        <p>＜平人＞の一般的な寿命は60年から80年程度である。</p>
+        <p>現代の一般的な＜エルフ＞の寿命は200年前後である。ただし、民族、血統、生活環境、魔力適性によっては300年から400年ほど生きる個体も存在する。</p>
+        <p>＜ドワーフ＞の寿命はおおむね150年から200年程度である。ただし、鉱山、鍛冶、地下作業、高濃度魔素環境など、どのような仕事に従事していたかによって寿命は大きく変化する。</p>
+        <p>＜魔族＞の寿命は個体差が非常に大きいが、一般には500年に満たない程度が平均として扱われる。魔族は共通形質が薄いため、寿命のばらつきも人類種の中で特に大きい。</p>
+        <p>＜エルフ＞は身体的には＜平人＞と大きく変わらない速度で成熟するが、成長環境が安定し、変化や刺激に乏しいため、情緒、社会性、対人経験の成熟は比較的緩やかである。</p>
+        <p>＜エルフ＞は40歳頃には＜平人＞の20代から30代程度に相当する精神成熟度へ達する。平人から幼く見える場合があるのは、知能や情緒が未発達だからではなく、安定を好む性質、長い時間感覚、強い個体性、平人社会の対人調整との違いによる。</p>
+        <p>100歳を越える＜エルフ＞は、共同体内での役割、教育、儀礼、交渉、責任、後進指導などを通じて、知的にも精神的にも老成した個体が増える。特に地位が高い個体ほど、共同体運営や外部交渉の経験を積むため、社会性も高まりやすい。</p>
+        <p>ある程度長く平人里や都市で暮らした＜エルフ＞は、平人と遜色ない礼節、作法、もてなし、気配り、同調、商談、近所付き合いを身につけることがある。エルフ種は変化を嫌いやすいが、変化できない種ではない。</p>
+        <p>見た目の成長については男女差もある。女性の方が成長が遅く、成人後もしばらく幼く見えやすい。たとえば20歳前後の女性エルフは、平人の感覚では若い少女から青年初期に見えうるが、30歳頃までさらに成長を続ける。その後は50歳から60歳頃まで、容姿の変化は比較的小さい。</p>
+
+        <h3>参考画像</h3>
+        <div class="image-gallery">
+          <figure>
+            <a href="../../Image/Source/Mage%20state%20-%20Elf%20-%20Common%20-%20Female%20-%20Age20.png">
+              <img src="../../Image/Source/Mage%20state%20-%20Elf%20-%20Common%20-%20Female%20-%20Age20.png" alt="20歳前後の一般的な女性エルフ">
+            </a>
+            <figcaption>一般的な女性エルフ（20歳前後）</figcaption>
+          </figure>
+          <figure>
+            <a href="../../Image/Source/Mage%20state%20-%20Elf%20-%20Common%20-%20Male%20-%20Age70.png">
+              <img src="../../Image/Source/Mage%20state%20-%20Elf%20-%20Common%20-%20Male%20-%20Age70.png" alt="70歳前後の一般的な男性エルフ">
+            </a>
+            <figcaption>一般的な男性エルフ（70歳前後）</figcaption>
+          </figure>
+        </div>
+
+        <details class="meta-note">
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>エルフ種は「長命であるため自動的に成熟している種」ではなく、経験密度と社会環境によって精神成熟が左右される種として扱う。若年個体の未熟さと高齢個体の老成は矛盾せず、経験と役割によって接続される。</p>
+            <p>＜エルフ＞の60代から100代程度の容貌は、先に生成した魔法国エルフ種の参考画像程度の、平人から見れば若い成人から壮年前に見える成熟者の印象を基準とする。ただし画像は仕様そのものではなく、仕様検討用の参考ビジュアルである。</p>
+            <p>一般的なエルフ衣服は、植物加工技術の高さを反映して、粗い布よりも柔らかく滑らかな植物由来素材を用いる。色彩も全体に淡く、強い彩度や重い金属感より、静かな質感と落ち着いた明度差で階層や年齢差を見せる方向が自然である。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="modern-elf-society">
+        <h2>現代エルフ社会の変化</h2>
+        <p>現代のエルフ社会には、若い世代を中心に大きな変化の兆しが生まれている。特に50歳未満の＜エルフ＞の間で、平人文化や都市文化を取り入れるべきではないかという、まだ明確な形を持たない思想が広がり始めている。</p>
+        <p>この思想は、平人をそのまま見習うというものではない。しかし平人種が魔法国崩壊後わずか400年から500年ほどで、魔法国に迫るほどの大国を築いた事実は、若い＜エルフ＞に強い影響を与えている。</p>
+        <p>若い＜エルフ＞の一部は、豊かさは自然に委ねるだけでなく、知恵、技術、制度、交易、組織によって得るべきではないかと考え始めている。病、飢え、死を自然や精霊に委ねるだけの考えは、前時代的ではないかという疑問も生まれている。</p>
+        <p>半島付近の＜エルフ＞の間では、魔法国の滅亡に魔力過多や身体への影響が関わっていたことを、単なる異端民族の自滅として片づけてよいのかという疑念も芽生えている。エルフ種は魔力への親和性が高い以上、魔力が身体、繁殖、寿命、魔力器官へ与える影響を平人のように研究すべきではないかという視点である。</p>
+        <p>この新しい文化を後押ししているのが、多人種のるつぼになりつつある帝国南部である。帝国南部では、南西大陸との交易、傭兵・探索者経済、遺跡需要により、平人、エルフ、ドワーフ、魔族、移民、冒険者、商人、研究者が入り混じり始めている。</p>
+        <p>伝統的なエルフ社会には、平人を粗野、乱暴、利己的、残忍な種として見る傾向が残る。しかし、実際に平人都市で暮らした若い＜エルフ＞の間では、平人は意外なほど礼節を守り、場の調和を重んじ、まず対話から入る者が多いという認識が広がりつつある。</p>
+        <p>平人社会にも問題のある者は多く存在するが、礼節を守り、対価を払い、問題を起こさない相手であれば、種族よりも実務、信用、金払いが重視されやすい。若い＜エルフ＞にとって、平人の里や都市は、伝統共同体より干渉が少なく、礼節さえ守ればある程度自由に過ごせる場所として認知され始めている。</p>
+        <p>運輸、街道、港湾、交易網の発展により、さまざまな地域の＜エルフ＞の実態も平人社会へ伝わっている。平人側にも、エルフとの距離感、礼節、避けるべき話題、取引上の注意などが実務的な常識として根付き始めている。</p>
+        <p>＜ドワーフ＞は、鉱山、鍛冶、工芸、石工、交易、山岳路を通じて、より古くから平人と交流を深めていた。その経験により、平人社会には異種族との付き合い方を実務的に学ぶ土壌があり、近年のエルフ流入にもその経験が活かされている。</p>
+
+        <details class="meta-note">
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>この変化は、エルフ種の初期分化における「自然や精霊との関係性に適応した系統」と、平人種の「技術と社会的組織による適応」という対比が、現代に別の形で再燃しているものとして扱う。</p>
+            <p>若いエルフの変革思想は、魔法国の再来を望むものではない。魔法国の失敗を恐れて研究や発展を拒むのではなく、むしろ失敗を理解し、繰り返さないために研究すべきだという新しい視点である。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="terminology">
+        <h2>用語上の注意</h2>
+        <p>全角山括弧で囲まれた名称は、正式名称ではなく仮称である。</p>
+        <p>＜エルフ＞や＜ドワーフ＞などの語句は、現時点では一般的なファンタジー語を便宜上用いたものであり、この世界内で実際にそのように呼称されていることを意味しない。</p>
+
+        <details class="meta-note">
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>創作物内では日本語表現として一般的な語句を用いる可能性がある。これは、世界内言語の語句を日本語に翻訳した表現として扱うことができる。</p>
+            <p>例えば、世界内語で特定種族を指す語が別に存在しても、日本語作品上ではエルフと表現する可能性がある。</p>
+          </div>
+        </details>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

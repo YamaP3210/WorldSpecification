@@ -1,0 +1,307 @@
+﻿<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>＜創作世界＞設定仕様書</title>
+  <style>
+    :root {
+      --page-bg: #f8f9fa;
+      --content-bg: #ffffff;
+      --border: #a2a9b1;
+      --border-light: #c8ccd1;
+      --text: #202122;
+      --muted: #54595d;
+      --link: #0645ad;
+      --heading: #000000;
+      --meta-bg: #f5f7fa;
+      --meta-border: #8a98a8;
+      --infobox-bg: #f8f9fa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--page-bg);
+      color: var(--text);
+      font-family: "Yu Gothic", "Meiryo", system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      background: var(--content-bg);
+      padding: 10px 24px;
+    }
+
+    .site-title {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 20px 24px 48px;
+    }
+
+    .sidebar {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .sidebar h2 {
+      margin: 0 0 8px;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--heading);
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .sidebar ol {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    .article {
+      min-width: 0;
+      border: 1px solid var(--border);
+      background: var(--content-bg);
+      padding: 24px 32px 40px;
+    }
+
+    .article-header {
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      color: var(--heading);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      font-weight: 400;
+      line-height: 1.25;
+    }
+
+    .article-note {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    h2 {
+      clear: both;
+      margin: 28px 0 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--heading);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    .infobox {
+      float: right;
+      width: min(300px, 42%);
+      margin: 0 0 18px 24px;
+      border: 1px solid var(--border);
+      border-collapse: collapse;
+      background: var(--infobox-bg);
+      font-size: 14px;
+    }
+
+    .infobox caption {
+      border: 1px solid var(--border);
+      border-bottom: 0;
+      background: #eaecf0;
+      padding: 8px;
+      color: var(--heading);
+      font-weight: 700;
+    }
+
+    .infobox th,
+    .infobox td {
+      border-top: 1px solid var(--border-light);
+      padding: 7px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .infobox th {
+      width: 36%;
+      background: #eaecf0;
+      font-weight: 600;
+    }
+
+    .meta-note {
+      clear: both;
+      margin: 16px 0 22px;
+      border: 1px solid var(--meta-border);
+      background: var(--meta-bg);
+      color: var(--text);
+    }
+
+    .meta-note summary {
+      cursor: pointer;
+      padding: 8px 10px;
+      color: var(--heading);
+      font-weight: 600;
+    }
+
+    .meta-note-body {
+      border-top: 1px solid var(--border-light);
+      padding: 10px 12px 12px;
+    }
+
+    .stub {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    @media (max-width: 760px) {
+      .layout {
+        display: block;
+        padding: 12px;
+      }
+
+      .sidebar {
+        margin-bottom: 16px;
+      }
+
+      .article {
+        padding: 18px;
+      }
+
+      .infobox {
+        float: none;
+        width: 100%;
+        margin: 0 0 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <p class="site-title">＜創作世界＞設定仕様書</p>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" aria-label="目次">
+      <h2>目次</h2>
+      <ol>
+        <li><a href="#overview">概要</a></li>
+        <li><a href="#world-data">基本情報</a></li>
+        <li><a href="#sections">設定分野</a></li>
+        <li><a href="#notes">編集方針</a></li>
+      </ol>
+    </nav>
+
+    <main class="article">
+      <header class="article-header">
+        <h1>＜創作世界＞</h1>
+        <p class="article-note">このページは、＜創作世界＞に関する設定情報と制作上のメタ情報を記録するための仕様書である。</p>
+      </header>
+
+      <table class="infobox" aria-label="基本情報">
+        <caption>＜創作世界＞</caption>
+        <tbody>
+          <tr>
+            <th scope="row">名称</th>
+            <td>＜創作世界＞</td>
+          </tr>
+          <tr>
+            <th scope="row">種別</th>
+            <td>剣と魔法のファンタジー世界</td>
+          </tr>
+          <tr>
+            <th scope="row">位置づけ</th>
+            <td>複数の創作物で利用可能な独立した舞台世界</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <section id="overview">
+        <h2>概要</h2>
+        <p>＜創作世界＞は、ゲーム、小説、シナリオ、その他の創作活動において利用するために構築される、独立した舞台世界である。</p>
+        <p>この世界は剣と魔法のファンタジー世界であり、魔法や超常現象を含む。ただし、それらの要素は無制限な例外として扱わず、可能な限り科学的・物理的・学問的な整合性と内部一貫性を持つように構築する。</p>
+
+        <details class="meta-note">
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>当初は、メタ情報を非表示にすれば世界内の百科事典記事として読める構成を想定していたが、現時点では制作のための仕様書として運用する方針に変更した。</p>
+            <p>そのため、記事本文側にも制作上必要な分類や位置づけを記述してよい。ただし、設定情報とメタ情報は現在のように明確に区別する。</p>
+            <p>＜創作世界＞は仮称である。正式名称は言語設定および命名体系の確定後に定める。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="world-data">
+        <h2>基本情報</h2>
+        <p class="stub">本文未作成。</p>
+
+        <details class="meta-note">
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>言語設定が確定するまで、固有名詞はすべて仮名として扱う。仮名は、正式名称と区別するために全角山括弧で囲む。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="sections">
+        <h2>設定分野</h2>
+        <p>現在は、世界地図を基礎資料として地理設定から整理する。</p>
+        <ul>
+          <li><a href="geography/index.html">地理</a></li>
+          <li><a href="species/index.html">人類・人種</a></li>
+          <li><a href="history/human-history.html">人類史</a></li>
+          <li><a href="magic/index.html">魔法・魔力</a></li>
+          <li><a href="combat/index.html">戦闘・兵装</a></li>
+          <li><a href="language/proto-language.html">原始メイン半島語</a></li>
+        </ul>
+
+        <details class="meta-note">
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>世界設定は、まず地理から整理する。これは、地理・地質・気候・海洋分布が、その後の人類史、文明、交易、国家形成に大きく影響するためである。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="notes">
+        <h2>編集方針</h2>
+        <p class="stub">本文未作成。</p>
+
+        <details class="meta-note" open>
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>このHTMLページに記述された記事本文は、この世界における事実として扱う。新しい設定を追加する際は、必要に応じて、その設定がどのような理由や方針から成立したのかをメタ情報として併記する。</p>
+            <p>このページは、世界観・設定の重要な一次資料として扱う。</p>
+          </div>
+        </details>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

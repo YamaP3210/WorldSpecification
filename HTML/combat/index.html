@@ -1,0 +1,404 @@
+﻿<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>戦闘・兵装 - ＜創作世界＞設定仕様書</title>
+  <style>
+    :root {
+      --page-bg: #f8f9fa;
+      --content-bg: #ffffff;
+      --border: #a2a9b1;
+      --border-light: #c8ccd1;
+      --text: #202122;
+      --muted: #54595d;
+      --link: #0645ad;
+      --heading: #000000;
+      --meta-bg: #f5f7fa;
+      --meta-border: #8a98a8;
+      --table-head: #eaecf0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--page-bg);
+      color: var(--text);
+      font-family: "Yu Gothic", "Meiryo", system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      background: var(--content-bg);
+      padding: 10px 24px;
+    }
+
+    .site-title {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 24px;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 20px 24px 48px;
+    }
+
+    .sidebar {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .sidebar h2 {
+      margin: 0 0 8px;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--heading);
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .sidebar ol {
+      margin: 0 0 18px;
+      padding-left: 22px;
+    }
+
+    .article {
+      min-width: 0;
+      border: 1px solid var(--border);
+      background: var(--content-bg);
+      padding: 24px 32px 40px;
+    }
+
+    .article-header {
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      color: var(--heading);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      font-weight: 400;
+      line-height: 1.25;
+    }
+
+    .article-note {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    h2 {
+      clear: both;
+      margin: 28px 0 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--heading);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    h3 {
+      margin: 20px 0 8px;
+      color: var(--heading);
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    table {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-collapse: collapse;
+      margin: 14px 0 20px;
+      background: #ffffff;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--border-light);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--table-head);
+      font-weight: 600;
+    }
+
+    .meta-note {
+      clear: both;
+      margin: 16px 0 22px;
+      border: 1px solid var(--meta-border);
+      background: var(--meta-bg);
+      color: var(--text);
+    }
+
+    .meta-note summary {
+      cursor: pointer;
+      padding: 8px 10px;
+      color: var(--heading);
+      font-weight: 600;
+    }
+
+    .meta-note-body {
+      border-top: 1px solid var(--border-light);
+      padding: 10px 12px 12px;
+    }
+
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: flex-start;
+      margin: 14px 0 20px;
+    }
+
+    .image-gallery figure {
+      width: 150px;
+      margin: 0;
+      border: 1px solid var(--border-light);
+      background: #ffffff;
+      padding: 8px;
+    }
+
+    .image-gallery img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--border-light);
+      background: #f8f9fa;
+    }
+
+    .image-gallery figcaption {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 760px) {
+      .layout {
+        display: block;
+        padding: 12px;
+      }
+
+      .sidebar {
+        margin-bottom: 16px;
+      }
+
+      .article {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <p class="site-title">＜創作世界＞設定仕様書</p>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" aria-label="目次">
+      <h2>目次</h2>
+      <ol>
+        <li><a href="#overview">概要</a></li>
+        <li><a href="#weapon-doctrine">兵装運用の基本</a></li>
+        <li><a href="#mage-state-elf-arms">魔法国エルフの兵装文化</a></li>
+        <li><a href="#mage-state-elf-sword">魔法国エルフの標準剣</a></li>
+        <li><a href="#mage-state-elf-javelin">魔法国エルフのジャベリン</a></li>
+        <li><a href="#mage-state-elf-guard-kit">魔法国エルフの警邏兵装</a></li>
+        <li><a href="#mercenary-style">傭兵系の戦闘様式</a></li>
+        <li><a href="#bows">弓兵と斥候</a></li>
+        <li><a href="#rear-line">後衛と戦場管理</a></li>
+        <li><a href="#medical-support">救護と医療支援</a></li>
+      </ol>
+      <p><a href="../index.html">全体インデックスへ戻る</a></p>
+      <p><a href="../magic/index.html">魔法・魔力へ</a></p>
+    </nav>
+
+    <main class="article">
+      <header class="article-header">
+        <h1>戦闘・兵装</h1>
+        <p class="article-note">このページは、＜創作世界＞における兵装、傭兵系戦闘様式、後衛運用、戦場医療の基本認識を整理する。</p>
+      </header>
+
+      <section id="overview">
+        <h2>概要</h2>
+        <p>この世界の戦闘では、武器の種類そのものに一義的な強弱を与えるよりも、どの職能で、どの環境で、どのような目的に使われるかを重視する。したがって、同じ剣であっても、護衛、治安維持、軍務、対魔獣、儀礼のいずれに用いられるかで意味は大きく変わる。</p>
+        <p>また、傭兵や探索者はゲーム的な万能前衛職ではない。実際には任務ごとに兵装が変わり、前衛、後衛、補助、斥候、術師護衛などの役割に応じて装備思想が分かれる。</p>
+
+        <details class="meta-note" open>
+          <summary>設計経緯・判断補足</summary>
+          <div class="meta-note-body">
+            <p>既存ファンタジー作品の職業分類や武器序列をそのまま流用せず、現実的な取り回し、任務適性、継戦力、支援関係から兵装を逆算する方針を取る。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="weapon-doctrine">
+        <h2>兵装運用の基本</h2>
+        <p>街道仕事や集落防衛に従事する戦士は、常時戦場にいるわけではない。そのため、巨大な武器よりも、携行しやすく、狭所や屋内でも使いやすい武具が好まれやすい。一方で、軍兵や対魔獣任務では、単独性よりも役割分担が優先されるため、長柄武器や長剣、大型打撃武器の価値が上がる。</p>
+        <p>このため、兵装は「強い武器を選ぶ」のではなく、「その仕事で生き残りやすい武器を選ぶ」という発想で整理されるべきである。</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">武具</th>
+              <th scope="col">主な使い方</th>
+              <th scope="col">補足</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>短剣・小剣・短めの片手剣</td>
+              <td>日常携行、護身、治安維持、街道仕事</td>
+              <td>最も常用しやすく、携行性が高い。</td>
+            </tr>
+            <tr>
+              <td>長剣・大型武器</td>
+              <td>軍務、対魔獣、突破役</td>
+              <td>用途は広いが、日常携行としては扱いにくい。</td>
+            </tr>
+            <tr>
+              <td>打撃武器</td>
+              <td>対魔獣、重装相手、治安機構の特殊任務</td>
+              <td>刀剣より有効な相手が明確に存在する。</td>
+            </tr>
+            <tr>
+              <td>槍・短槍</td>
+              <td>軍隊、集団戦、集落防衛</td>
+              <td>最も実用的な集団戦武器の一つ。</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <details class="meta-note">
+          <summary>設計経緯・判断補足</summary>
+          <div class="meta-note-body">
+            <p>タクティクスオウガ系の装備デザインが持つ実用品らしさは参考にするが、ゲーム的に過大な剣のサイズや過度な誇張は採用しない。武器は記号ではなく仕事道具として見えることを優先する。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="mage-state-elf-arms">
+        <h2>魔法国エルフの兵装文化</h2>
+        <p>魔法国エルフは、重装白兵戦に特化した戦士民族ではない。魔法主体の安定国家において、兵装は戦争のための野戦器よりも、官憲、統治、治安維持、護身、示威、儀礼のための常用武器として発達した。</p>
+        <p>そのため、一般に好まれる武具は、体格と取り回しに見合った軽量・小型のものとなりやすい。極端に大ぶりな白兵武器は存在しても一般的ではなく、特殊用途や上位武装に寄る。</p>
+        <p>また、剣と並んで、細身で比較的軽量なジャベリン系武具も一般的な装備候補である。これは長槍のような重い隊列武器ではなく、携行しやすく、威嚇、牽制、短距離投擲、軽武装相手への制圧に向くため、官憲、警備、補助兵、一定の訓練を受けた市民層にも適している。</p>
+        <p>一般的な警邏兵は平時の巡回では帯剣のみで行動し、通常は盾を持たない。警戒度の高い任務や作戦行動の際にのみ、ジャベリンや要所保護型の軽装防具を加える形が基本である。</p>
+
+        <details class="meta-note">
+          <summary>設計経緯・判断補足</summary>
+          <div class="meta-note-body">
+            <p>ここでいう文明基準は、古代ローマ帝国や中世相当の技術段階を思考の足場として使うものであり、実在史の武器登場年代をそのまま拘束条件とするものではない。この世界で必要性が早く生じ、当時の加工精度で実現可能なら、実在史より早く似た武具が現れてもよい。</p>
+            <p>逆に、実在史に存在した武具でも、この世界の戦闘様式、社会構造、文化的嗜好に合わなければ一般化しない。</p>
+            <p>細身の投擲槍を一般装備に含めるのも、魔法国エルフ社会が常在戦場の重装文化ではなく、統治実務、治安維持、示威、限定的な実力行使に向いた武器を好みやすいという前提に基づく。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="mage-state-elf-sword">
+        <h2>魔法国エルフの標準剣</h2>
+        <p>魔法国エルフの一般的な常用剣は、小型エストックに近い、細身で刺突寄りの片手剣系統として考えられる。これは重装甲貫通専用の純エストックではなく、官憲、一般兵、そして成人エルフの護身剣としても成立する、軽量で制御しやすい常用剣である。</p>
+        <p>実用的な標準型では、刃渡りはおおむね40cmから50cm程度、刀身は比較的細く、鍔やハンドガードの張り出しは控えめであることが自然である。用途は、非武装から軽武装の相手を制圧・威圧・無力化することに向いており、対軍戦の主兵装というより、治安維持と護身のための標準武装と見るべきである。</p>
+        <p>同系統の剣は階級や用途によって上方分化する。軍務や政府高官では、60cmから70cm程度のやや長い刀身を持ち、示威性や地位表示のための装飾が増した儀礼寄りの帯剣が用いられうる。したがって、この細身剣系統は下級官憲の実用品から上級官吏の儀礼剣まで連続的に展開しうる。</p>
+        <p>意匠面では、構造は簡素でありながら、葉、枝、蔦など自然を思わせる装飾が控えめに加えられることがある。鍔や金具は全面金属に限らず、木材を基部にして金属で補強したり、鞘に植物由来の素材感を加えたりする設計もありうる。こうした装飾は華美な誇示ではなく、実用品に洗練を与える文化的意匠として機能する。</p>
+
+        <h3>参考画像</h3>
+        <div class="image-gallery">
+          <figure>
+            <a href="../../Image/Source/Equipments/Mage%20State%20-%20Elf%20-%20Sword%20-%20Small%20sword%2001.png">
+              <img src="../../Image/Source/Equipments/Mage%20State%20-%20Elf%20-%20Sword%20-%20Small%20sword%2001.png" alt="魔法国エルフの一般装備の小剣イメージ1">
+            </a>
+            <figcaption>一般装備の小剣イメージ 1</figcaption>
+          </figure>
+          <figure>
+            <a href="../../Image/Source/Equipments/Mage%20State%20-%20Elf%20-%20Sword%20-%20Small%20sword%2002.png">
+              <img src="../../Image/Source/Equipments/Mage%20State%20-%20Elf%20-%20Sword%20-%20Small%20sword%2002.png" alt="魔法国エルフの一般装備の小剣イメージ2">
+            </a>
+            <figcaption>一般装備の小剣イメージ 2</figcaption>
+          </figure>
+        </div>
+
+        <details class="meta-note" open>
+          <summary>設計経緯・判断補足</summary>
+          <div class="meta-note-body">
+            <p>この剣系統は、魔法国エルフが重装白兵戦国家ではなく、魔法主体の安定した統一国家であったことから導いている。強大な野戦兵器ではなく、官憲、統治、護身、儀礼に広く使える標準武器として設計されている点が重要である。</p>
+            <p>また、平人の後代装備には、この系統から簡略化・実用化・再解釈された意匠や携行法が流入している可能性が高い。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="mage-state-elf-javelin">
+        <h2>魔法国エルフのジャベリン</h2>
+        <p>魔法国エルフのジャベリンは、投擲専用の軽槍ではない。基本運用は、両手で扱う細身の短め長柄武器であり、集団で間合いを維持しながら相手を囲い込み、追い込み、制圧するために用いられる。</p>
+        <p>投擲はあくまで必要時の手段であり、遠距離攻撃が必要になった時に限って行われる。投擲時には、魔術によって威力、射程、正確性を補助する前提が強く、弓のような連射性は求められない。</p>
+        <p>このため、魔法国エルフ社会では弓そのものはあまり発展しなかった。一方で、隷属民として組み込まれた平人は弓を多用し、両者の武装文化には明確な差がある。</p>
+        <p>対魔獣戦においても、力比べになる相手には正面から接近せず、物理罠や魔術罠で行動を制限し、位置優位を取ったうえでジャベリン投擲によって仕留める戦術が多い。</p>
+
+        <h3>参考画像</h3>
+        <div class="image-gallery">
+          <figure>
+            <a href="../../Image/Source/Equipments/Mage%20State%20-%20Elf%20-%20Spear%20-%20Javelin%2001.png">
+              <img src="../../Image/Source/Equipments/Mage%20State%20-%20Elf%20-%20Spear%20-%20Javelin%2001.png" alt="魔法国エルフのジャベリン参考画像">
+            </a>
+            <figcaption>一般的なジャベリン系武具</figcaption>
+          </figure>
+        </div>
+
+        <details class="meta-note">
+          <summary>設計経緯・判断補足</summary>
+          <div class="meta-note-body">
+            <p>魔法国エルフは白兵戦を好まず、重い長槍や弓の集団射撃よりも、魔術補助を前提とした短め長柄武器と決定的な投擲を重視する。ジャベリン系武具は、その文化を最もよく表す一般装備の一つとして位置づけられる。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="mage-state-elf-guard-kit">
+        <h2>魔法国エルフの警邏兵装</h2>
+        <p>一般的な警備・警邏兵の装備は、常在戦場の兵士というより、治安維持のための官憲装備として考えるべきである。平時の巡回では小剣のみ、または小剣と最低限の装備で行動し、何らかの作戦行動時にのみジャベリンと軽装防具を加える。</p>
+        <p>防具は金属重装ではなく、樹皮などの植物由来素材を加工した胸当てと、帯状の固定材で肩と腰を支える要所保護型の軽装である。手甲は残るが、太腿側面のような常用上邪魔になる部位は基本的に保護しない。必要に応じて、鎧の上から上衣を羽織る。</p>
+        <p>職務時には髪をくくり、頭部防具はあっても簡易な鉢がね程度に留まり、しかも常用は好まれない。白兵戦を好まない文化のため、個人装備として盾を持つことも基本的にはない。</p>
+        <p>ただし、犯罪者拘束、賊徒制圧、遠距離攻撃への備えが必要な稀な作戦では、専用の盾部隊が大盾を用いる。これらは術師が補助術を行使するまでの防壁でもあり、日常的な前線兵科ではない。</p>
+        <p>また、警戒が必要な任務では、通常の植物素材サンダルではなく、帯素材を編み上げたブーツ型の足元になることもある。</p>
+
+        <h3>参考画像</h3>
+        <div class="image-gallery">
+          <figure>
+            <a href="../../Image/Source/Mage%20state%20-%20Elf%20-%20Guad%20-%20Light%20armor%2001.png">
+              <img src="../../Image/Source/Mage%20state%20-%20Elf%20-%20Guad%20-%20Light%20armor%2001.png" alt="魔法国エルフの一般的な警邏兵装">
+            </a>
+            <figcaption>一般的な警邏・警備兵装</figcaption>
+          </figure>
+          <figure>
+            <a href="../../Image/Source/Mage%20state%20-%20Elf%20-%20Guad%20-%20Light%20armor%2002.png">
+              <img src="../../Image/Source/Mage%20state%20-%20Elf%20-%20Guad%20-%20Light%20armor%2002.png" alt="魔法国エルフの戦闘任務向け軽装兵装">
+            </a>
+            <figcaption>戦闘任務寄りの軽装兵装</figcaption>
+          </figure>
+        </div>
+      </section>

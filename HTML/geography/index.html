@@ -1,0 +1,389 @@
+﻿<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>地理 - ＜創作世界＞設定仕様書</title>
+  <style>
+    :root {
+      --page-bg: #f8f9fa;
+      --content-bg: #ffffff;
+      --border: #a2a9b1;
+      --border-light: #c8ccd1;
+      --text: #202122;
+      --muted: #54595d;
+      --link: #0645ad;
+      --heading: #000000;
+      --meta-bg: #f5f7fa;
+      --meta-border: #8a98a8;
+      --figure-bg: #f8f9fa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--page-bg);
+      color: var(--text);
+      font-family: "Yu Gothic", "Meiryo", system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      background: var(--content-bg);
+      padding: 10px 24px;
+    }
+
+    .site-title {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 24px;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 20px 24px 48px;
+    }
+
+    .sidebar {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .sidebar h2 {
+      margin: 0 0 8px;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--heading);
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .sidebar ol {
+      margin: 0 0 18px;
+      padding-left: 22px;
+    }
+
+    .article {
+      min-width: 0;
+      border: 1px solid var(--border);
+      background: var(--content-bg);
+      padding: 24px 32px 40px;
+    }
+
+    .article-header {
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      color: var(--heading);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      font-weight: 400;
+      line-height: 1.25;
+    }
+
+    .article-note {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    h2 {
+      clear: both;
+      margin: 28px 0 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--heading);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    .map-figure {
+      margin: 18px 0 22px;
+      border: 1px solid var(--border);
+      background: var(--figure-bg);
+      padding: 10px;
+    }
+
+    .map-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--border-light);
+      background: #ffffff;
+    }
+
+    .map-wrapper {
+      position: relative;
+      border: 1px solid var(--border-light);
+      background: #ffffff;
+    }
+
+    .map-wrapper img {
+      border: 0;
+    }
+
+    .map-label {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      border: 1px solid rgba(32, 33, 34, 0.72);
+      background: rgba(255, 255, 255, 0.78);
+      padding: 2px 7px;
+      color: #202122;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.35;
+      text-align: center;
+      white-space: nowrap;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+      pointer-events: none;
+    }
+
+    .map-label.region {
+      border-color: rgba(179, 36, 36, 0.9);
+      background: rgba(255, 245, 245, 0.86);
+      color: #8f1d1d;
+    }
+
+    .map-figure figcaption {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .meta-note {
+      clear: both;
+      margin: 16px 0 22px;
+      border: 1px solid var(--meta-border);
+      background: var(--meta-bg);
+      color: var(--text);
+    }
+
+    .meta-note summary {
+      cursor: pointer;
+      padding: 8px 10px;
+      color: var(--heading);
+      font-weight: 600;
+    }
+
+    .meta-note-body {
+      border-top: 1px solid var(--border-light);
+      padding: 10px 12px 12px;
+    }
+
+    .stub {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    @media (max-width: 760px) {
+      .layout {
+        display: block;
+        padding: 12px;
+      }
+
+      .sidebar {
+        margin-bottom: 16px;
+      }
+
+      .article {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <p class="site-title">＜創作世界＞設定仕様書</p>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" aria-label="目次">
+      <h2>目次</h2>
+      <ol>
+        <li><a href="#overview">概要</a></li>
+        <li><a href="#world-map">世界地図</a></li>
+        <li><a href="#geographical-principles">地理設定の基本方針</a></li>
+        <li><a href="#continents-oceans">大陸と海洋</a></li>
+        <li><a href="#setting-region">主舞台地域</a></li>
+        <li><a href="#plains-urban-zone">平野部の都市圏</a></li>
+        <li><a href="#visual-references">参考風景資料</a></li>
+      </ol>
+      <p><a href="../index.html">全体インデックスへ戻る</a></p>
+    </nav>
+
+    <main class="article">
+      <header class="article-header">
+        <h1>地理</h1>
+        <p class="article-note">このページは、＜創作世界＞の地理、地質、地形、海洋分布に関する設定情報と制作上のメタ情報を記録する。</p>
+      </header>
+
+      <section id="overview">
+        <h2>概要</h2>
+        <p>＜創作世界＞の地理設定は、世界地図、プレート境界、山岳分布、航路、赤道位置などの地図資料を基礎として整理する。</p>
+        <p>地理は、人類史、文明分布、交易路、国家形成、文化圏、言語分化、戦争、災害史に影響する一次条件として扱う。</p>
+
+        <details class="meta-note" open>
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>この地図は適当に作成されたものではなく、地球のプレートテクトニクスと同様のメカニズムを前提に、科学的に妥当な方向性で作成された基礎地図として扱う。</p>
+            <p>完全な地質シミュレーションではないが、大陸配置、海岸線、山脈、プレート境界は、世界設定上の重要な一次条件である。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="world-map">
+        <h2>世界地図</h2>
+        <figure class="map-figure">
+          <div class="map-wrapper">
+            <img src="../../Map/World.png" alt="＜創作世界＞の世界地図">
+            <span class="map-label" style="left: 25%; top: 35%;">＜北西大陸＞</span>
+            <span class="map-label" style="left: 72%; top: 42%;">＜東大陸＞</span>
+            <span class="map-label" style="left: 34%; top: 61%;">＜南西大陸＞</span>
+            <span class="map-label region" style="left: 42%; top: 45%;">＜メイン半島＞</span>
+          </div>
+          <figcaption>＜創作世界＞の世界地図。海洋と大陸の配置を示す。</figcaption>
+        </figure>
+        <p class="stub">地図の詳細解説は未作成。</p>
+
+        <details class="meta-note">
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>この地図を基準に、今後の地理設定を記述する。地図上の大陸、海洋、島嶼、半島、海峡は、後続の歴史・文明設定に対して優先される基礎条件として扱う。</p>
+            <p>地図上のラベルは、正式な地名ではなく作業用の仮名である。言語設定と命名体系が確定するまでは、固有名詞を全角山括弧で囲んで表記する。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="geographical-principles">
+        <h2>地理設定の基本方針</h2>
+        <p>＜創作世界＞の地理は、地球型惑星の地質・気候・海洋条件を基本として構築する。</p>
+        <p>大陸配置、海岸線、山脈、火山、海峡、航路は、可能な限り物理的・地質的な理由を持つものとして扱う。</p>
+
+        <details class="meta-note">
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>地理は、以後の人類史や文明史を導く前提である。そのため、物語上の都合だけで地形や海洋条件を変更しない。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="continents-oceans">
+        <h2>大陸と海洋</h2>
+        <p>現在確認されている主要な大陸区分には、＜北西大陸＞、＜東大陸＞、＜南西大陸＞がある。</p>
+        <p>＜東大陸＞は、地図上では複数の大陸が隣接しているように見えるが、設定上は地続きの一つの大陸として扱う。</p>
+
+        <details class="meta-note">
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>大陸と海洋の解説では、世界地図、プレート図、山岳図、赤道図を参照しながら、気候帯、海流、移動可能性、文明圏の分離を検討する。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="setting-region">
+        <h2>主舞台地域</h2>
+        <p>主舞台地域は、北西側の大陸群の南東端に位置する半島地方である。</p>
+        <p>この地域は、大陸本体から南東へ張り出す半島と、その周辺の島嶼・海峡・沿岸海域を含む。</p>
+        <p>魔法国崩壊後、この半島では旧魔法国時代の水利、都市、研究施設、交通拠点が各地に散在する一方、街や村から遠い郊外遺構の多くは維持管理されず、野生生物、賊徒、魔獣、異常魔力で変異した危険生物の棲み処へ変わっていった。遺跡は資産であると同時に、継続的な危険源でもある。</p>
+        <p>特に危険なのは、魔力結晶を採掘していた深い地下施設である。これらは坑道と研究所が一体化した複雑な構造を持ち、放棄後は露出した結晶から漏れ出た魔素・魔力によって、内部環境の汚染、変異生物の発生、空間異常、崩落と洞窟化が進んだ。地上遺構よりもはるかに管理が難しく、長く手つかずの危険地帯となった。</p>
+        <p>近年では、こうした地下遺跡の一部で高濃度汚染が弱まり、新たに侵入可能になった区域が増えている。この変化は、遺跡探査、危険区域調査、護衛、資材回収、危険生物駆除などの需要をさらに押し上げている。</p>
+        <p>また、旧首都近傍から南へ伸びて海へ到達した勢力は、海運の発展を通じて、半島各地と内陸方面を一つの広域戦略空間として意識するようになった。以後の半島史では、海運の伸長が各勢力の視野と国家形成の速度に大きく影響する。</p>
+
+        <details class="meta-note">
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>この地域は、`World-Area.png` で赤枠表示され、`World-Region.png` で拡大表示されている。＜メイン半島＞内部の山岳帯、南東部沿岸の首都位置、北東沖の火山は、今後の地域史と国家形成において重要な条件となる。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="plains-urban-zone">
+        <h2>平野部の都市圏</h2>
+        <p>メイン半島の大規模平野では、河川、湖沼、用水、街道に沿って居住地と生産地が連なり、中心都市から離れるほど集落密度が下がる。</p>
+        <p>ただし、半島全体が均一に埋まっているわけではない。主要都市や大河沿いの中核地域を除けば、人口はまだ多くなく、人々は安全、水利、交易、防衛の都合から、ある程度まとまって居住する傾向が強い。</p>
+        <p>主要都市からおおむね100kmから200km程度までは、河川、街道、耕地条件に支えられた集落圏がある程度つながる。しかし、その外側では居住密度が大きく落ち、他国の集落圏との間には空白地、猟場、季節利用地、半独立の地元部族圏のような地域が広く残る。</p>
+        <p>このため、領主や国家の支配は、広い面積を均等に塗りつぶす形ではなく、街や集落という拠点、それらを結ぶ街道、渡河点、港、倉庫、関所を核にしつつ、その周辺へ緩やかな領域感覚が広がる形で成立することが多い。地図上で「このあたりはうちの領域」という感覚はあるが、その中間の荒地や山野まで細かく実効支配しているとは限らない。</p>
+        <p>平野部の中核都市周辺では、10kmから20km前後の距離感で小規模から中規模の街や集落が存在する構図は十分にありうる。ただし、これは水利と街道に恵まれた中核平野で成立しやすい局地的傾向であり、半島全体の一般像ではない。主要街道や水系に沿う方向は密度が高く、乾燥地や不利な地形では間隔が広がる。</p>
+        <p>近年は海運による物資搬入が容易になってきたため、従来なら自立しにくかった中間地点にも、中継港、小規模な荷揚げ地、宿場的な町、交易依存の新興集落が増えつつある。ただし、これによって国土全体が面として埋まるのではなく、海路に接続した拠点と補給回廊の密度が上がっていると考えるべきである。</p>
+
+        <details class="meta-note">
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>この地域の都市圏は、古代ローマ帝国や秦・前漢期のような、中心都市と周辺衛星集落の網を参考にしつつ、魔術や遺跡文明の影響で一部分野が先鋭化したものとして捉える。</p>
+            <p>文明水準の大枠は12世紀から13世紀相当を基準とするが、治水、物流、行政、遺跡利用、組合機能などの分野ではそれ以上に発達した外観を取りうる。</p>
+            <p>近代国家のような明瞭な線の国境や均質な面支配を前提にせず、都市圏、街道圏、疎住の周辺地帯、部族的緩衝地帯が重なり合う半島として整理する。居住地でも農地でも戦略用地でもない土地は、名目上どこかの領域内に含まれていても、実務上は深く管理されないことが多い。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="regional-structure">
+        <h2>メイン半島の地域構造</h2>
+        <p>メイン半島は、南部、西部、北東部という三つの大きな地域性を持つ。いずれも同じ半島世界に属するが、地形、海運条件、農耕適性、歴史的役割が異なるため、共同体と国家の性格にも差が生じている。</p>
+        <p>南部は平野と農地が多く、面状の支配域が成立しやすい地域である。中核都市と水利に支えられた平野部では生産力が高く、南部諸勢力や後の王国・帝国はここを基礎として国力を築いた。ただし、面状支配が可能とはいえ、郊外まで高密度に埋まっているわけではなく、都市圏の外では人口密度は低い。</p>
+        <p>西部は海沿い重視の地域であり、沿岸交易と海運で発展した。西側の川を越えた地帯は南部との折衝地帯にあたり、海運ルートに沿って発展している。一方で、山手側の空白地は境界未確定地というより、単に人口が足りず実効支配を置けない地帯であり、西部の勢力は内陸奥地より海岸線と港を優先する傾向が強い。</p>
+        <p>北東部は、南西部に比べてやや分断的である。南部から北東部へ向かう現実的な経路は、東海岸沿いに北上する海陸回廊か、北部の川沿いから山道へ抜ける北回りの二系統に限られやすく、日常的な大量往来には制約がある。</p>
+        <p>北東沿岸は極寒ではないが、外洋に直接開いて海が荒れやすく、沿岸は崖や岩場が多いため、海運や漁労に適した海岸線が限られている。さらに、外洋風は塩気と湿気を含み、作物に害を与えやすく、土壌も石や岩が多く農耕には不利である。そのため海側は有効活用されにくく、主要都市と人口は山寄りに偏りやすい。</p>
+        <p>この地理条件から、北東部では山の民的な共同体が長く続き、南西部と同胞感を持ちながらも、独自の生活圏と防衛意識を発達させた。北方との交易は長く続くが、友好圏というより外国との緊張を含んだ接触であり、北方圧力への警戒は常に強い。</p>
+        <p>近年の北東部では、東部沿岸海運の育成と、北の川沿い山地ルートの防衛線化が同時に進められている。前者は南部経由で西部ともつながる海上補給線を生み、後者は宿場、居住地、軍事拠点を線状に整備して北方侵入路を抑える構想である。将来的には、北東部共同体は分裂するのではなく、一体性を保ったまま、東部沿岸圏と北部防衛圏へ役割分担していくと見込まれている。</p>
+
+        <details class="meta-note">
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>南部は生産と政治の中核、西部は交易と海運の先進地域、北東部は山地性と防壁性を帯びた地域として差別化している。帝国圏の現在の役割分担も、この地理差から生じる。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="visual-references">
+        <h2>参考風景資料</h2>
+        <p>メイン半島平野部の都市圏イメージとして、700年から800年前頃の魔法国家時代の衛星生産都市と、現在の帝国直轄領における発展後の同地点風景を参考画像として扱う。</p>
+        <p>前者は、優れた水場と治水、広い農耕地帯、首都圏近傍の衛星都市という性格を示す。後者は、その同系統都市が物流、宿場、倉庫、組合、行政機能を強め、帝国内でも上位規模の中核都市へ成長した姿の参考になる。</p>
+
+        <figure class="map-figure">
+          <img src="../../Image/mage-state-era-plains-road-illustration-01.png" alt="魔法国家時代の平野部衛星都市の参考風景">
+          <figcaption>約700年から800年前頃の参考風景。農業生産と水利を担う衛星都市としての景観。</figcaption>
+        </figure>
+
+        <figure class="map-figure">
+          <img src="../../Image/imperial-era-satellite-city-road-illustration-01.png" alt="帝国時代の平野部衛星都市の参考風景">
+          <figcaption>現在の参考風景。同じ立地が物流、宿場、組合機能を強めた帝国直轄領の上位都市として発展した姿。</figcaption>
+        </figure>
+
+        <details class="meta-note" open>
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>これらの画像は、都市規模、農地密度、街道と都市の接続、時代差分の空気感を確認するための一次参考資料として採用する。</p>
+            <p>一方で、馬車、服装、個々の建築意匠、細部の道路規格、水路構造などは、まだ完全な仕様として固定しない。大枠の景観イメージは採用し、細部は今後の設定整理で精査する。</p>
+            <p>また、画像生成は既存作品風の模倣を目的とせず、この世界仕様から逆算した景観検討のために用いる。</p>
+          </div>
+        </details>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,738 @@
+﻿<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>原始メイン半島語 - ＜創作世界＞設定仕様書</title>
+  <style>
+    :root {
+      --page-bg: #f8f9fa;
+      --content-bg: #ffffff;
+      --border: #a2a9b1;
+      --border-light: #c8ccd1;
+      --text: #202122;
+      --muted: #54595d;
+      --link: #0645ad;
+      --heading: #000000;
+      --meta-bg: #f5f7fa;
+      --meta-border: #8a98a8;
+      --table-head: #eaecf0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--page-bg);
+      color: var(--text);
+      font-family: "Yu Gothic", "Meiryo", system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      background: var(--content-bg);
+      padding: 10px 24px;
+    }
+
+    .site-title {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 24px;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 20px 24px 48px;
+    }
+
+    .sidebar {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .sidebar h2 {
+      margin: 0 0 8px;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--heading);
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .sidebar ol {
+      margin: 0 0 18px;
+      padding-left: 22px;
+    }
+
+    .article {
+      min-width: 0;
+      border: 1px solid var(--border);
+      background: var(--content-bg);
+      padding: 24px 32px 40px;
+    }
+
+    .article-header {
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      color: var(--heading);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      font-weight: 400;
+      line-height: 1.25;
+    }
+
+    .article-note {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    h2 {
+      clear: both;
+      margin: 28px 0 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--heading);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    h3 {
+      margin: 20px 0 8px;
+      color: var(--heading);
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    table {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-collapse: collapse;
+      margin: 14px 0 20px;
+      background: #ffffff;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--border-light);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--table-head);
+      font-weight: 600;
+    }
+
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.95em;
+    }
+
+    .meta-note {
+      clear: both;
+      margin: 16px 0 22px;
+      border: 1px solid var(--meta-border);
+      background: var(--meta-bg);
+      color: var(--text);
+    }
+
+    .meta-note summary {
+      cursor: pointer;
+      padding: 8px 10px;
+      color: var(--heading);
+      font-weight: 600;
+    }
+
+    .meta-note-body {
+      border-top: 1px solid var(--border-light);
+      padding: 10px 12px 12px;
+    }
+
+    @media (max-width: 760px) {
+      .layout {
+        display: block;
+        padding: 12px;
+      }
+
+      .sidebar {
+        margin-bottom: 16px;
+      }
+
+      .article {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <p class="site-title">＜創作世界＞設定仕様書</p>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" aria-label="目次">
+      <h2>目次</h2>
+      <ol>
+        <li><a href="#overview">概要</a></li>
+        <li><a href="#notation">表記方針</a></li>
+        <li><a href="#historical-stage">時代背景</a></li>
+        <li><a href="#roots">最古層語根</a></li>
+        <li><a href="#report-system">探索報告体系</a></li>
+        <li><a href="#elf-contact">先住エルフ語との接触</a></li>
+        <li><a href="#future-development">後代派生</a></li>
+      </ol>
+      <p><a href="../index.html">全体インデックスへ戻る</a></p>
+      <p><a href="../history/human-history.html">人類史へ</a></p>
+    </nav>
+
+    <main class="article">
+      <header class="article-header">
+        <h1>原始メイン半島語</h1>
+        <p class="article-note">このページは、メイン半島地方で後に用いられる言語群の最古層について、時代背景、発声、語源、意味、派生可能性を記録する。</p>
+      </header>
+
+      <section id="overview">
+        <h2>概要</h2>
+        <p>原始メイン半島語は、北西大陸東南部、特にメイン半島周辺で形成された平人種系言語の古層である。</p>
+        <p>ここで扱う語は、現代語の単語ではなく、移動、探索、野営、呼びかけ、身振りと結びついた生活上の必要から生じた初期語根である。</p>
+        <p>最古層の語は、単語と訳語を対応させる辞書項目ではなく、具体的な生活状況の中で必要となった発声から成立した語根として扱う。ただし、それらは状態や状況だけを表す語とは限らず、対象や概念を未分化に指す場合もある。</p>
+
+        <details class="meta-note" open>
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>この言語構築では、語感や綴りを既存言語風にすることを目的としない。既存言語は、語源、派生、音変化、文法化、借用、文語・口語差、社会階層による語彙差を考えるための参考として用いる。</p>
+            <p>言語は辞書ではなく、語を生み出せる体系として構築する。最古層語根は、後代の地名、人名、種族名、制度語、魔術語などを作る基盤になる。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="notation">
+        <h2>表記方針</h2>
+        <p>文字成立以前の語は、綴りとして扱わない。<code>wau</code> や <code>ra</code> などの表記は、発音を記録するための制作用音写であり、当時の文字表記ではない。</p>
+        <p>各語根は、音写、読み、IPA、時代、原義、初期意味、後代派生可能性を分けて記録する。</p>
+        <p>読みは日本語で発声感を確認するための補助であり、IPAは音韻上の本体を記録するために用いる。</p>
+
+        <details class="meta-note">
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>文字体系が生まれる前の語を綴りベースで考えると、後代の文字や現代的な表記に引きずられやすい。そのため、初期段階では発音と発声状況を重視する。</p>
+            <p>IPAは英語専用の発音記号ではなく、国際音声記号を広い音素表記として使う。現段階では厳密な音声記述ではなく、/wa/ や /wau/ のような大まかな音素表記で足りる。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="historical-stage">
+        <h2>時代背景</h2>
+        <p>この最古層は、おおよそ5万年前から3万年前頃の段階として扱う。</p>
+        <p>5万年前頃、南西大陸と北西大陸を結ぶ移動ルートが途絶え、北西大陸側の平人種集団は独立した環境で生活するようになった。この分断と同時期に、言語は明確に体系化へ向かい始めた。</p>
+        <p>3万年前頃までには、生活に直結した対象や状況を、何らかの発声によって指し、さらに語を組み合わせて表現力を高められることに気づき始めた。</p>
+        <p>この段階では、語はまだ現代的な抽象概念ではない。水、食料、危険、有無、判断、移動、野営、仲間への報告といった実用的状況から語根が生じる。</p>
+
+        <details class="meta-note">
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>メイン半島語は南西大陸からそのまま持ち込まれた言語ではなく、北西大陸東南部、特にメイン半島周辺で形成された言語として扱う。より原始的な音声伝達は南西大陸時代から存在した可能性があるが、メイン半島言語の直接祖語はこの地で体系化した。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="roots">
+        <h2>最古層語根</h2>
+
+        <h3><code>wau</code></h3>
+        <table>
+          <tbody>
+            <tr>
+              <th scope="row">音写</th>
+              <td><code>wau</code></td>
+            </tr>
+            <tr>
+              <th scope="row">読み</th>
+              <td>ワゥ</td>
+            </tr>
+            <tr>
+              <th scope="row">IPA</th>
+              <td>/wau/</td>
+            </tr>
+            <tr>
+              <th scope="row">時代</th>
+              <td>最古層・原始メイン半島語</td>
+            </tr>
+            <tr>
+              <th scope="row">原義</th>
+              <td>水を見つけたこと、または水が関係することを仲間へ知らせる呼び声。</td>
+            </tr>
+            <tr>
+              <th scope="row">初期意味</th>
+              <td>水というもの。飲むべきもの、期待される水、記憶の中の水、目に見える水、川・池・海・水辺などに関わる水の未分化な概念。</td>
+            </tr>
+            <tr>
+              <th scope="row">弱化形</th>
+              <td><code>wa</code> / ワ / /wa/。末尾の /u/ は弱く、落ちても意味が通じる。</td>
+            </tr>
+            <tr>
+              <th scope="row">後代派生</th>
+              <td>水、水分、飲む、川、泉、池、湿地、水辺、海、水源。</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><code>wau</code> は、最古層で最も重要な語根の一つである。移動中や散開探索中に水を見つけた者が、離れた仲間へ大声で知らせる発声として成立した。</p>
+        <p>初期の <code>wau</code> は、現代語の「水」という物質名として完全に整理された語ではない。一方で、水場という状態や状況を表す語でもない。飲むべきもの、期待される水、記憶の中の水、目に見える水、川・池・海・水辺に関わる水などを未分化に含む、「水というもの」の概念語である。</p>
+        <p>後に先住エルフ語の地形接尾辞 <code>-ia</code> の考えが持ち込まれると、<code>wau-ia</code> という接触形が生じる。これは「水辺」「河川地形」「海辺」「水源地」のように、水によって特徴づけられる地形・地勢上の地点を表す。</p>
+        <p>水の発見は集団の生存に直結するため、同時期に成立した語彙では <code>wa-</code> で始まる語は少ない。<code>wa-</code> 語頭は水系語根として強く保護された。</p>
+        <p>後代の派生では、英語の water を連想させる <code>wata</code>、<code>watar</code>、<code>water</code> などの形へ近づけない。</p>
+
+        <h3><code>am</code></h3>
+        <table>
+          <tbody>
+            <tr>
+              <th scope="row">音写</th>
+              <td><code>am</code>、長呼形 <code>aam</code></td>
+            </tr>
+            <tr>
+              <th scope="row">読み</th>
+              <td>アァ（ム） / アーム</td>
+            </tr>
+            <tr>
+              <th scope="row">IPA</th>
+              <td>/aːm/、語末弱化形 /aː/</td>
+            </tr>
+            <tr>
+              <th scope="row">時代</th>
+              <td>最古層・原始メイン半島語</td>
+            </tr>
+            <tr>
+              <th scope="row">原義</th>
+              <td>食べる際に口を開ける動きから生じた、食物に関わる呼び声・語根。</td>
+            </tr>
+            <tr>
+              <th scope="row">初期意味</th>
+              <td>食べ物というもの。口に入れるもの、腹を満たすもの、持ち帰る価値があるもの、獲物、木の実、根、肉などを未分化に含む。</td>
+            </tr>
+            <tr>
+              <th scope="row">語末弱化</th>
+              <td>語末の /m/ は鼻音的痕跡へ弱化したり、ンに近づいたり、場合によっては落ちる。ただし核となる長い /aː/ は残る。</td>
+            </tr>
+            <tr>
+              <th scope="row">後代派生</th>
+              <td>食べ物、可食物、食べる、食事、獲物、果実、肉、蓄え、栄養。</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><code>am</code> は、食料系の最古層語根である。制作用音写では <code>am</code> と記録するが、実際の発声は短い「アム」ではなく、アァ（ム）またはアームに近い。</p>
+        <p>この語根は、口を開けて食べる動作に由来するため、語の中心は <code>a</code> である。語末の <code>m</code> は口を閉じる動き、または口内に取り込む感覚を示す痕跡であり、弱化して鼻音に近づいたり脱落したりし得る。</p>
+        <p>そのため、後代においても短い「アム」より、長く開いた「アァ」系の響きが残りやすい。<code>am</code> は、食べ物、獲物、木の実、根、肉、食べられるかもしれないものなどを未分化に含む、「食べ物というもの」の概念語である。</p>
+        <p><code>am</code> は食べ物という広い概念語であり、<code>-ia</code> が地形語義へ絞られた後は、<code>am-ia</code> を一般的な生産形としては扱わない。必要なら、古い地名化・採集地名化した特殊例としてのみ残りうる。</p>
+
+        <h3><code>iu</code></h3>
+        <table>
+          <tbody>
+            <tr>
+              <th scope="row">音写</th>
+              <td><code>iu</code>、合図・長呼形 <code>iiu</code></td>
+            </tr>
+            <tr>
+              <th scope="row">読み</th>
+              <td>イーウ / イィゥ</td>
+            </tr>
+            <tr>
+              <th scope="row">IPA</th>
+              <td>/iːu/。無声合図では主に口形が残る。</td>
+            </tr>
+            <tr>
+              <th scope="row">時代</th>
+              <td>最古層・原始メイン半島語</td>
+            </tr>
+            <tr>
+              <th scope="row">原義</th>
+              <td>狩猟中、獲物の存在を仲間へ静かに伝えるための口形・小声の合図。</td>
+            </tr>
+            <tr>
+              <th scope="row">初期意味</th>
+              <td>獲物というもの。動く食べ物、狩れる動物、逃げる前に静かに注意を向けるべき対象。</td>
+            </tr>
+            <tr>
+              <th scope="row">口形特徴</th>
+              <td>特徴的な「イ」の口を長く保ち、その後に「ウ」または「ム」に近い閉口動作で締める。</td>
+            </tr>
+            <tr>
+              <th scope="row">後代派生</th>
+              <td>獲物、狩猟対象、狩る、追う、仕留める対象、動物性食料、追跡、狩猟道具、狩猟集団、食料調達。</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><code>iu</code> は、獲物に関わる最古層語根である。<code>wau</code> や <code>am</code> のような大声の発見報告ではなく、狩猟中に音を立てず、仲間へ獲物の存在を伝える口形・小声の合図から成立した。</p>
+        <p>重要なのは、長く保たれる「イ」の口形である。これを大げさに作ることで、声を出さなくても仲間に意図を伝えやすい。その後、「ウ」または「ム」に近い閉口動作で締めることで、単なる表情ではなく合図として識別される。</p>
+        <p>初期の <code>iu</code> は、現代的な「獲物」という分類語ではない。動く食べ物、狩れる動物、逃げる前に静かに注意を向けるべき対象を未分化に含む語である。</p>
+        <p><code>iu</code> は狩猟・食料調達の基幹語根だが、<code>-ia</code> が地形接尾辞へ絞られた後は、<code>iu-ia</code> を一般的な生産形としては扱わない。必要なら、古い狩り場名・猟場名に限って特殊化した形として残りうる。</p>
+        <p><code>iu</code> は、獲物を表す単独語に留まらず、狩猟や食料調達に関わる語彙を生み出す基幹語根となる。後代には <code>iu-</code> 派生によって、追跡、狩る、仕留める、狩猟道具、狩猟集団、動物性食料などの語が作られる。</p>
+        <p>この構造では、<code>iu</code> は「獲物」という概念を表し、通常の派生は <code>iu-</code> 語族として発展する。<code>iu-ia</code> は一般規則というより、後代に必要なら特定地形名・猟場名として残る余地のある古形である。</p>
+
+        <h3><code>ra</code></h3>
+        <table>
+          <tbody>
+            <tr>
+              <th scope="row">音写</th>
+              <td><code>ra</code></td>
+            </tr>
+            <tr>
+              <th scope="row">読み</th>
+              <td>ラ / ラァ</td>
+            </tr>
+            <tr>
+              <th scope="row">IPA</th>
+              <td>/ra/</td>
+            </tr>
+            <tr>
+              <th scope="row">時代</th>
+              <td>最古層・原始メイン半島語</td>
+            </tr>
+            <tr>
+              <th scope="row">原義</th>
+              <td>求めていたものがそこにあることを示す発見報告語。</td>
+            </tr>
+            <tr>
+              <th scope="row">初期意味</th>
+              <td>ある、見つけた、期待通り、来る価値がある。</td>
+            </tr>
+            <tr>
+              <th scope="row">対義</th>
+              <td><code>en</code></td>
+            </tr>
+            <tr>
+              <th scope="row">後代派生</th>
+              <td>存在、事実、発見、肯定、承認、許可、成立。</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><code>ra</code> は、抽象的な存在や真理の語として始まったのではない。探索や移動の中で、期待対象がそこにあることを仲間へ伝える報告語として成立した。</p>
+        <p>大声で報告する際には、<code>raa!</code> のように母音が伸びる。</p>
+        <p>後にエルフ語由来の <code>-ia</code> 変化が平人語へ取り入れられると、<code>ra</code> は単純なポジティブ報告としての必要性を失い始める。</p>
+        <p>これは、<code>wau-ia</code> のような形だけで「水辺」「河川地形」「水源地」といった地形的な報告ができるようになり、発見結果そのものの報告に <code>ra</code> を添える必要が薄れたためである。</p>
+        <p>その代わり、<code>ra</code> は指示への「了解」、提案や判断への「了承」、受け入れ、肯定、合意、良い結果を伝える語としての用法を強めていく。これにより、後代の「はい」「わかった」「その通り」「よい」「同意する」に近い語義へ広がる。</p>
+        <p>ただし、<code>ra</code> が存在確認の場面から消えたわけではない。「水場はあるか」のように問いかけられた場合、返答としての <code>ra</code> は「問われた内容を肯定する」「ある」という意味で用いられる。能動的に場所の発見を知らせる場合は <code>wau-ia</code>、問いへの受動的な肯定では <code>ra</code>、という使い分けが生じる。</p>
+
+        <h3><code>en</code></h3>
+        <table>
+          <tbody>
+            <tr>
+              <th scope="row">音写</th>
+              <td><code>en</code></td>
+            </tr>
+            <tr>
+              <th scope="row">読み</th>
+              <td>エン / エーン</td>
+            </tr>
+            <tr>
+              <th scope="row">IPA</th>
+              <td>/en/</td>
+            </tr>
+            <tr>
+              <th scope="row">時代</th>
+              <td>最古層・原始メイン半島語</td>
+            </tr>
+            <tr>
+              <th scope="row">原義</th>
+              <td>期待された探索結果が得られなかったことを示す報告語。</td>
+            </tr>
+            <tr>
+              <th scope="row">初期意味</th>
+              <td>ない、見つからない、期待したものではない、使える結果ではない。</td>
+            </tr>
+            <tr>
+              <th scope="row">対義</th>
+              <td><code>ra</code></td>
+            </tr>
+            <tr>
+              <th scope="row">後代派生</th>
+              <td>不在、欠乏、失敗、否定、拒否、打消し、否定応答、否定接頭辞。</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><code>en</code> は、最初から一般的な論理否定だったわけではない。水、食料、安全地などを探した結果、期待するものが見つからなかったことを伝える実用的な否定報告であった。</p>
+        <p>大声で報告する際には、<code>een!</code> のように母音が伸びる。</p>
+        <p>後代には、<code>en</code> は二つの方向へ分化する。返答語としては、エン、エェンとはっきり発声され、「否」「違う」「そうではない」「拒む」という強い否定応答を担う。</p>
+        <p>一方、語に付く否定接頭辞としては弱化し、<code>e(n)-</code> のような形になる。この場合、末尾の /n/ は明瞭な音節ではなく、鼻の奥にかかる程度の鼻音的痕跡として残る。意味は「非」「不」「無」「Xではない」に近い。</p>
+
+        <h3><code>ma</code></h3>
+        <table>
+          <tbody>
+            <tr>
+              <th scope="row">音写</th>
+              <td><code>ma</code></td>
+            </tr>
+            <tr>
+              <th scope="row">読み</th>
+              <td>マ / マァ</td>
+            </tr>
+            <tr>
+              <th scope="row">IPA</th>
+              <td>/ma/</td>
+            </tr>
+            <tr>
+              <th scope="row">時代</th>
+              <td>最古層・原始メイン半島語</td>
+            </tr>
+            <tr>
+              <th scope="row">原義</th>
+              <td>期待対象の有無を断定できないことを示す保留報告語。</td>
+            </tr>
+            <tr>
+              <th scope="row">初期意味</th>
+              <td>何とも言えない、何かあるが答えにくい、未確認、直接見てもらう必要がある。</td>
+            </tr>
+            <tr>
+              <th scope="row">関連語</th>
+              <td><code>ra</code>、<code>en</code></td>
+            </tr>
+            <tr>
+              <th scope="row">後代派生</th>
+              <td>かもしれない、分からない、未確認、兆候、可能性、推測、何か、名付けられないもの。</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><code>ma</code> は、<code>ra</code> と <code>en</code> のどちらでも正確に答えられない場合の第三の報告語である。</p>
+        <p>期待対象そのものはないかもしれないが、何か関係しそうなものがある。あるいは、語彙、知識、視界、判断材料が不足している。このような場合に <code>ma</code> は、仲間に直接確認を促す。</p>
+        <p><code>ma wau</code> は「水かもしれない」「水に関わる何かがある」「水と言い切れるか分からない」を意味する。一方、<code>ma</code> 単独は「答えられない」「語彙がない」「判断できない」「とりあえず見てもらうしかない」という意味を持つ。</p>
+
+        <details class="meta-note" open>
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p><code>ra</code>、<code>en</code>、<code>ma</code> は、探索結果を仲間へ報告するための三分法として重宝された。肯定、否定、保留という三つの返答があることで、単なる呼び声から対象と判断を組み合わせる構造へ発展した。</p>
+            <p><code>en</code> から生じる否定接頭辞は、文字上の変形ではなく、発声上の弱化と文法化によって成立する。したがって、<code>en</code> の字面を反転した <code>ne</code> のような派生は採らない。文字成立以前の段階では、派生は表記ではなく音、用法、短縮、結合のしやすさによって判断する。</p>
+            <p><code>ma</code> は特に派生力が高い語根である。後代には、不確実性、推測、未確認、可能性、証拠、兆候、名付けられない対象など、多くの語へ展開できる。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="report-system">
+        <h2>探索報告体系</h2>
+        <p>最古層の探索報告体系は、判断語と対象語を組み合わせる単純な構造を持つ。</p>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">形</th>
+              <th scope="col">初期機能</th>
+              <th scope="col">用例</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>ra</code></td>
+              <td>期待対象がある、見つかった</td>
+              <td><code>ra wau</code> = 水がある、水を見つけた</td>
+            </tr>
+            <tr>
+              <td><code>en</code></td>
+              <td>期待対象がない、見つからない</td>
+              <td><code>en wau</code> = 水はない、水ではない</td>
+            </tr>
+            <tr>
+              <td><code>ma</code></td>
+              <td>判断できない、何かあるが断定できない</td>
+              <td><code>ma wau</code> = 水かもしれない</td>
+            </tr>
+            <tr>
+              <td><code>wau</code></td>
+              <td>水というもの、水に関わる対象・概念</td>
+              <td><code>wau!</code> = 水だ、来い</td>
+            </tr>
+            <tr>
+              <td><code>am</code></td>
+              <td>食べ物というもの、食べられる対象・概念</td>
+              <td><code>aam!</code> = 食べ物だ、来い</td>
+            </tr>
+            <tr>
+              <td><code>iu</code></td>
+              <td>獲物というもの、静かに注意を向けるべき狩猟対象</td>
+              <td><code>iiu</code> = 獲物だ、静かに見ろ</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>この体系は、語順が完全な文法として確定する前の段階である。ただし、判断語と対象語を組み合わせることで、探索結果をより正確に共有できるようになった。</p>
+        <p>典型的な場面では、探索者が丘の向こうや林の奥を確認し、仲間の方を向いて身振りと共に <code>raaa!</code>、<code>eeen!</code>、<code>maa!</code> と叫び、必要に応じて <code>wau</code> などの対象語を続けた。</p>
+        <p>初期には、水を発見した場合の報告は <code>ra wau</code> であった。これは「水がある」「水を見つけた」という意味で、<code>wau</code> はまだ広い概念としての水を指していた。</p>
+        <p>その後、エルフ語との混交が進むと、水に関わる地形や、今話題に挙げている水辺・水源地は、<code>wau-ia</code> だけで報告できるようになる。これは「水辺」「今問題にしている水源地」「実在する水地形」に近い。</p>
+        <p>この変化により、<code>ra</code> は単にポジティブな探索結果を示す語としては使われにくくなり、指示への了解、了承、受け入れ、肯定、合意、良い結果を伝える語へ機能を移していく。</p>
+        <p>ただし、これは能動的な報告に限る。「水場はあるか」と問われた場合、返答としては <code>ra</code> が用いられる。この場合の <code>ra</code> は「問われた内容は肯定される」「ある」を意味する。</p>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">発話状況</th>
+              <th scope="col">形</th>
+              <th scope="col">意味</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>能動的に水の存在を知らせる</td>
+              <td><code>wau-ia</code></td>
+              <td>ここは水辺だ。水地形がある。今話題の水源地だ。</td>
+            </tr>
+            <tr>
+              <td>能動的に食料の存在を知らせる</td>
+              <td><code>am-ia</code></td>
+              <td>一般規則ではない。必要なら古い採集地名としてのみ残る。</td>
+            </tr>
+            <tr>
+              <td>水・食料などの有無を問われて肯定する</td>
+              <td><code>ra</code></td>
+              <td>ある。問われた内容は肯定される。</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <details class="meta-note">
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>この三分法は、後代の「在る」「無い」「肯定」「否定」「合意」「拒否」「打消し」「推測」「未確認」などの語彙・文法要素へ発展する基盤となる。</p>
+            <p>ただし、この時点ではまだ抽象的な論理語ではない。水、食料、安全地、危険物、移動先などを探す生活実践の中で、探索結果を共有するために生じた発声である。</p>
+            <p><code>ra wau</code> から <code>wau-ia</code> への変化は、平人語の探索報告体系に、エルフ語由来の地形接尾辞が入り込んだ例である。これにより、広い概念としての対象と、その対象によって特徴づけられる地形的地点を区別できるようになった。</p>
+            <p>この区別が入ったことで、<code>wau-ia</code> だけで能動的な場所報告が成立するようになり、<code>ra</code> は能動報告からは退いた。一方で、問いへの返答としては残り、了解、了承、受け入れ、肯定、合意、良い結果を表す方向へ機能を移した。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="elf-contact">
+        <h2>先住エルフ語との接触</h2>
+        <p>原始メイン半島語の形成期、平人種集団は先住するエルフ種集団と生息圏を重ねていた。このため、メイン半島語の古層は平人種だけで孤立して成立したものではなく、同時期の先住エルフ語から強い影響を受けたものとして扱う。</p>
+        <p>半島では、エルフ語の方が平人語より早く言語として確立し始めていた可能性が高い。平人種はエルフ種と頻繁に交わっていたため、平人語の語源や語根には、エルフ語と同一の基層に属するもの、エルフ語の用法に影響されたもの、エルフ語から流用されたものが多く含まれる。</p>
+        <p>平人語の最古層が、移動、探索、発見報告、危険共有、野営判断などから発生したのに対し、エルフ語の最古層は、定住的な共同体生活、感覚や情緒の共有、記憶、禁忌、伝承、精霊との接触から発生した。</p>
+        <p>この差により、平人語は「探したものがあるかないか」を早く表現し、エルフ語は「その名が指すものが、概念なのか、物質的にそこにあるものなのか」を早く区別した。</p>
+
+        <h3><code>-ia</code></h3>
+        <table>
+          <tbody>
+            <tr>
+              <th scope="row">音写</th>
+              <td><code>-ia</code></td>
+            </tr>
+            <tr>
+              <th scope="row">読み</th>
+              <td>イァ</td>
+            </tr>
+            <tr>
+              <th scope="row">IPA</th>
+              <td>/-ia/</td>
+            </tr>
+            <tr>
+              <th scope="row">種別</th>
+              <td>先住エルフ語由来の、地形に関する地点・場・位置を表す接尾辞。</td>
+            </tr>
+            <tr>
+              <th scope="row">機能</th>
+              <td>名詞が示す概念を、地形・地勢として成立している地点・場・位置・地域として表す。</td>
+            </tr>
+            <tr>
+              <th scope="row">成立</th>
+              <td>独立語根 <code>ia</code> からの接尾辞化ではなく、既存名詞に付けることで、その概念に結びつく地形的な地点・場・位置を示すようになったもの。</td>
+            </tr>
+            <tr>
+              <th scope="row">後代派生</th>
+              <td>海、川、山、陸などに由来する地形名、地名、古い地勢語を作る古層接尾辞・派生要素。</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>エルフ語では、最初期の名詞は実在と概念を明確に区別していなかった。たとえば「水」を表す語は、想像上の飲み水、共同体が共有する水の概念、記憶の中の水、現実に目の前にある池や川や海の水を、まだ十分に分けていなかった。</p>
+        <p>しかし、精霊、夢、記憶、感情、伝承など、物質ではないが共同体内で共有される対象に触れる機会が多かったため、エルフ語では早い時期から「概念としての名」と「物質的にそこにあるもの」を区別する必要が生じた。</p>
+        <p><code>-ia</code> は、自然関係のうち特に地形に関する地点・場・位置を表す接尾辞である。ある語が指す性質が、地勢・地形として成立している具体的な地点を示す。</p>
+        <p>これは汎用的な冠詞や対象化標識ではない。海、川、山、陸、水辺のような地形語と強く結びつく古層接尾辞である。</p>
+        <p>この考えが平人語へ持ち込まれた場合、平人語の <code>wau</code> は <code>wau-ia</code> という形を作る。<code>wau</code> が「水というもの」を広く指すのに対し、<code>wau-ia</code> は「水辺」「河川地形」「水源地」のような地形的な地点を表す。</p>
+        <p>このため、探索報告でも、初期の <code>ra wau</code> は「水がある」という広い報告だったが、混交後は <code>wau-ia</code> だけで「水辺」「実在する水地形」を示す報告として成立するようになる。</p>
+        <p><code>am</code> や <code>iu</code> は重要語根ではあるが、地形接尾辞へ絞られた後の <code>-ia</code> とは相性が弱い。これらは原則として別の派生で発展し、<code>am-ia</code> や <code>iu-ia</code> は必要な場合にのみ、古い地名や猟場名として特殊に残る。</p>
+        <p>このため、この地方の言語では、時代が進むにつれて <code>-ia</code> 語尾で終わる古い地形語・地名が多くなる傾向を持つ。ただし、自然関係の語句すべてが <code>-ia</code> になるわけではなく、地形語義を持つ古い語句に偏って定着する。</p>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">形</th>
+              <th scope="col">初期連結読み</th>
+              <th scope="col">後期・弱化読み</th>
+              <th scope="col">意味</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>wau-ia</code></td>
+              <td>ワゥイァ</td>
+              <td>ウィア</td>
+              <td>水場、水辺、水源地。</td>
+            </tr>
+            <tr>
+              <td><code>am-ia</code></td>
+              <td>アァムィァ</td>
+              <td>アァミァ</td>
+              <td>古い採集地名として残る可能性のある特殊形。</td>
+            </tr>
+            <tr>
+              <td><code>iu-ia</code></td>
+              <td>イィウイァ</td>
+              <td>イィウィァ</td>
+              <td>古い猟場名として残る可能性のある特殊形。</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>これらは元の時代の綴りではなく、<code>-ia</code> 系が広まった後に定着していく連結発音である。高頻度の <code>-ia</code> 形ほど、一語のように発音される傾向が強まる。</p>
+        <p>現在は分析用にすべて <code>-ia</code> 系で表記しているが、後代の実際の綴りでは <code>-ia</code> がそのまま見えるとは限らない。一語化した語句ほど、語根 + <code>-ia</code> ではなく、縮約後の発音に従った別綴りになることが多い。</p>
+
+        <details class="meta-note" open>
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p><code>-ia</code> は、<code>ia</code> という独立語根が先にあり、それが後に接尾辞化したものではない。既存名詞が先にあり、その名詞が広い概念と地形的地点を区別しない段階を経て、海、川、山、陸、水辺のような地勢・地形を示す古層接尾辞として <code>-ia</code> が成立した。</p>
+            <p>この扱いにより、平人語の <code>ra</code> / <code>en</code> が探索結果の有無から生じたのに対し、エルフ語では存在様式の区別が早く発達した、という差を作る。</p>
+            <p><code>wau-ia</code> や <code>am-ia</code> は平人語内部で自然発生した冠詞ではなく、エルフ語の地形接尾辞が平人語根に接触的に付着した形として扱う。ただし、これは義務的な文法規則ではなく、そう表現すれば地形的な地点・場として伝わるという運用である。</p>
+            <p>ただし、この段階のエルフ語はまだ「精神的に感じられるものも実在である」という高次概念には至っていない。最初にあるのは、物質的にあるものと、物質的なものではないものを切り分ける素朴な区別である。</p>
+          </div>
+        </details>
+      </section>
+
+      <section id="future-development">
+        <h2>後代派生</h2>
+        <p>この最古層語根は、後代の語形成で重要な基盤となる。</p>
+        <p><code>wau</code> は水系語彙へ、<code>am</code> は食料・摂食系語彙へ、<code>ra</code> は存在・事実・肯定へ、<code>en</code> は不在・欠乏・否定応答・否定接頭辞へ、<code>ma</code> は不確実性・推測・未確認・可能性へ発展しうる。</p>
+        <p><code>iu</code> は、獲物という概念から、狩猟、追跡、食料調達、狩猟道具、狩猟集団、動物性食料などの <code>iu-</code> 派生語を多く生み出す基幹語根となる。</p>
+        <p>また、先住エルフ語との接触によって、<code>wau</code> から <code>wau-ia</code> のような地形接触形が生じる。これは水系語彙の中でも、広い概念としての水ではなく、水辺、河川地形、水源地を表す方向へ分化する。</p>
+        <p><code>am</code> や <code>iu</code> については、同じ規則を機械的には適用しない。必要な場合のみ、古い採集地名・猟場名として特殊に <code>-ia</code> 系を残しうる。</p>
+        <p>このように、古い語根を基礎にして <code>語根-</code> 派生語を作る方式は、他の単語でも基本派生として広く採用される。</p>
+        <p><code>-ia</code> が古い地形接尾辞として定着するため、この地方の後代言語では、<code>-ia</code> 語尾で終わる古地名や地勢語が多く見られる傾向が生まれる。ただしこれは、自然物を表す語が必ず <code>-ia</code> 化するという意味ではない。特に成立が古く、地形語義を持つ語句に <code>-ia</code> 系が多く残る。</p>
+        <p><code>en</code> の場合、否定応答としての形と否定接頭辞としての形を区別する。否定応答では明瞭な <code>en</code> が残り、接頭辞では <code>e(n)-</code> のように弱化し、末尾の鼻音は明瞭に発声されない。</p>
+        <p>後代の言語史では、これらの語根が音変化、短縮、接辞化、文法化、複合語化を経て、地名、制度語、日常語、文法要素として残る可能性がある。</p>
+        <p>この段階では、派生語を過度に確定しない。まずは原義と初期用法を固定し、後の時代ごとの音変化と語形成規則に従って派生させる。</p>
+
+        <details class="meta-note">
+          <summary>設定意図・考案経緯</summary>
+          <div class="meta-note-body">
+            <p>語源は単なる雰囲気付けではなく、後代の語彙を矛盾なく生み出すための仕様である。最古層で決めた語根は、後の時代の命名に影響するため、語形、意味範囲、派生方向、避けるべき形を明確に残す。</p>
+          </div>
+        </details>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
